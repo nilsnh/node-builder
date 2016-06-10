@@ -9,5 +9,8 @@ RUN echo '{ "allow_root": true }' > /root/.bowerrc
 
 # Bower will try to create this folder and fail if it's
 # not there and editable. 
-RUN mkdir /.config && chown 775 -R /.config
+RUN mkdir .config .cache .local \
+	&& chown 1000 -R /.config \
+	&& chown 1000 -R /.cache \
+	&& chown 1000 -R /.local
 
